@@ -1,26 +1,28 @@
 import { View, ScrollView, Text, StyleSheet, Image } from "react-native";
 import { MEALS } from "../data/dummy-data";
-import { useLayoutEffect, useContext } from "react";
+import { useLayoutEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import MealDetails from "../components/MealDetail/MealDetails";
 import Subtitle from "../components/MealDetail/Subtitle";
 import List from "../components/MealDetail/List";
 import IconButton from "../components/IconButton";
 import Color from "../constants/color";
-import { FavoritesContext } from "../store/context/favorites-context";
+import {addFavorite, removeFavorite} from "../store/redux/favorites"
 
 function MealDetailsScreen({route, navigation}){
-    const favoriteMealsCtx = useContext(FavoritesContext);
+    const favoriteMealsIds = useSelector((state) => state.favoriteMeals.ids)
+    const dispatch = useDispatch()
 
     const mealId = route.params.mealId
     const meal = MEALS.find((meal) => meal.id == mealId)
-    const mealIsFavorite = favoriteMealsCtx.ids.includes(mealId)
+    const mealIsFavorite = favoriteMealsIds.includes(mealId)
 
     function favoritePressHandler(){
         if(mealIsFavorite){
-            favoriteMealsCtx.removeFavorite(mealId)
+            dispatch(removeFavorite({id: mealId}))
         }
         else{
-            favoriteMealsCtx.addFavorite(mealId)
+            dispatch(addFavorite({id: mealId}))
         }
     }
 
@@ -76,7 +78,7 @@ const styles = StyleSheet.create({
         fontSize: 26,
         textAlign: "center",
         fontWeight: "bold", 
-        color: Color.accent600,
+        color: Color.accent700,
         marginTop: 10,
     },
     listContainer:{
