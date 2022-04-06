@@ -29,9 +29,9 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 8,
         overflow: Platform.OS === "android"? "hidden": "visible",
-        backgroundColor: Color.accent500,
+        backgroundColor: Color.accent600,
         borderWidth: 2,
-        borderColor: Color.accent600
+        borderColor: Color.accent800
     },
     button:{
         flex: 1,
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     title:{
         fontWeight: "bold",
         fontSize: 18,
-        color: Color.primary500,
+        color: Color.primary600,
     }
 })
 

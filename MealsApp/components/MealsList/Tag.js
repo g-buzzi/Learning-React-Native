@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         borderRadius: 16,
         margin: 4,
         elevation: 3,
-        backgroundColor: Color.accent700,
+        backgroundColor: Color.accent800,
     },
     tagTitle:{
         fontSize: 14,

@@ -1,7 +1,7 @@
 import { View, Pressable, Image, Text, StyleSheet, Platform } from "react-native"
 import Color from "../../constants/color"
 import MealDetails from "../MealDetail/MealDetails"
-import MealTags from "../MealDetail/MealTags"
+import MealTags from "./MealTags"
 
 
 function MealItem({title, imgURL, duration, affordability, complexity, isGlutenFree, isLactoseFree, isVegan, isVegetarian, onPress}){
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         flex: 1,
         marginHorizontal: 10,
         marginVertical: 20,
-        backgroundColor: Color.accent500,
+        backgroundColor: Color.accent600,
         borderRadius: 16,
         overflow: "hidden",
         elevation: 5,
